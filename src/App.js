@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './App.css';
 
 const marked = require('marked');
@@ -8,6 +9,7 @@ class App extends Component {
 		super(props);
 		this.state = {
 			markdown: {
+				copied: false,
 				content: `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -87,6 +89,11 @@ And here. | Okay. | I think we get it.
 					<button className="btn" onClick={this.clearMarkdown}>
 						<i className="fa fa-trash" /> Delete
 					</button>
+					<CopyToClipboard text={this.state.markdown.content} onCopy={() => this.setState({ copied: true })}>
+						<button className="btn">
+							<i className="fa fa-clipboard" /> Copy to clipboard
+						</button>
+					</CopyToClipboard>
 				</div>
 				<div className="col-md-6" id="content">
 					<h3 className="title2">Preview</h3>
