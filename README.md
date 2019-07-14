@@ -15,4 +15,4 @@ Markdown previewer responsive application created with React.js.
 
 
 
-* Visit the [Markdown preview](https://markdwpreview.netlify.com/)
+Visit the [Markdown preview](https://markdwpreview.netlify.com/)
