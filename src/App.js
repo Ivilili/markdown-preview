@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import './App.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 const marked = require('marked');
 
-class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			markdown: {
-				copied: false,
-				content: `# Welcome to my React Markdown Previewer!
+let markContent = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
@@ -55,7 +50,15 @@ And here. | Okay. | I think we get it.
 * And last but not least, let's not forget embedded images:
 
 ![React Logo w/ Text](https://goo.gl/Umyytc)
-`
+`;
+
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			markdown: {
+				copied: false,
+				content: markContent
 			}
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -82,27 +85,32 @@ And here. | Okay. | I think we get it.
 
 	render() {
 		return (
-			<div className="row">
-				<div id="home" className="col-md-6 markdown">
-					<h3 className="title1">Markdown</h3>
-					<textarea onChange={this.handleChange} value={this.state.markdown.content} id="editor" />
-					<button className="btn" onClick={this.clearMarkdown}>
-						<i className="fa fa-trash" /> Delete
-					</button>
-					<CopyToClipboard text={this.state.markdown.content} onCopy={() => this.setState({ copied: true })}>
-						<button className="btn">
-							<i className="fa fa-clipboard" /> Copy to clipboard
+			<div className="container-fluid">
+				<div className="row">
+					<div id="home" className="col-sm markdown">
+						<h3 className="title1">Markdown</h3>
+						<textarea onChange={this.handleChange} value={this.state.markdown.content} id="editor" />
+						<button className="btn" onClick={this.clearMarkdown}>
+							<i className="fa fa-trash" /> Delete
 						</button>
-					</CopyToClipboard>
-				</div>
-				<div className="col-md-6" id="content">
-					<h3 className="title2">Preview</h3>
-					<div id="preview" dangerouslySetInnerHTML={this.rawMarkup(this.state.markdown.content)} />
-					<button className="btn">
-						<a href="#home">
-							<i className="fa fa-chevron-circle-up 3x" /> Back To Top
-						</a>
-					</button>
+						<CopyToClipboard
+							text={this.state.markdown.content}
+							onCopy={() => this.setState({ copied: true })}
+						>
+							<button className="btn">
+								<i className="fa fa-clipboard" /> Copy to clipboard
+							</button>
+						</CopyToClipboard>
+					</div>
+					<div className="col-sm" id="content">
+						<h3 className="title2">Preview</h3>
+						<div id="preview" dangerouslySetInnerHTML={this.rawMarkup(this.state.markdown.content)} />
+						<button className="btn">
+							<a href="#home">
+								<i className="fa fa-chevron-circle-up 3x" /> Back To Top
+							</a>
+						</button>
+					</div>
 				</div>
 			</div>
 		);
