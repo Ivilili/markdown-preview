@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 const marked = require('marked');
 
@@ -87,8 +85,8 @@ class App extends Component {
 		return (
 			<div className="container-fluid">
 				<div className="row">
-					<div id="home" className="col-sm markdown">
-						<h3 className="title1">Markdown</h3>
+					<div id="home" className="col-sm-6 markdown">
+						<h2 className="title1">Markdown</h2>
 						<textarea onChange={this.handleChange} value={this.state.markdown.content} id="editor" />
 						<button className="btn" onClick={this.clearMarkdown}>
 							<i className="fa fa-trash" /> Delete
@@ -102,8 +100,8 @@ class App extends Component {
 							</button>
 						</CopyToClipboard>
 					</div>
-					<div className="col-sm" id="content">
-						<h3 className="title2">Preview</h3>
+					<div className="col-sm-6" id="content">
+						<h2 className="title2">Preview</h2>
 						<div id="preview" dangerouslySetInnerHTML={this.rawMarkup(this.state.markdown.content)} />
 						<button className="btn">
 							<a href="#home">

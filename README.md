@@ -1,12 +1,12 @@
 # Markdown Preview
 
 ## Introduction 
-Markdown previewer, an application created with React.js.
+Markdown previewer is a responsive application created with React.js, Bootstrap and Marked,low-level compiler for parsing markdown.
 
 ## User Stories
 
 * User can write in Markdown and see the preview of its work immediately,
-* Use can copy written Markdown to clipboard, or delete it,
+* User can copy written Markdown to clipboard, or delete it,
 * Markdown Preview can be used on any device
 
 
