@@ -1,7 +1,7 @@
 # Markdown Preview
 
 ## Introduction 
-Markdown previewer responsive application created with React.js.
+Markdown previewer, an application created with React.js.
 
 ## User Stories
 
